@@ -13,7 +13,7 @@ export default function LoginScreen() {
   const onPress = React.useCallback(async () => {
     try {
       const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
-        redirectUrl: Linking.createURL('/dashboard', { scheme: 'myapp' }),
+        redirectUrl: Linking.createURL('/(tabs)/home', { scheme: 'myapp' }),
       })
 
       if (createdSessionId) {
@@ -43,7 +43,7 @@ export default function LoginScreen() {
 
         {/* Devam butonu */}
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Continues</Text>
+          <Text onPress={onPress} style={styles.buttonText}>Continues</Text>
         </TouchableOpacity>
 
         {/* Şartlar ve koşullar */}

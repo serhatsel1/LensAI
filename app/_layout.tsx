@@ -29,7 +29,7 @@ export default function RootLayout() {
   }
 
 
-  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY
+  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
 
   if (!publishableKey) {
     throw new Error(
@@ -40,7 +40,7 @@ export default function RootLayout() {
     <ClerkProvider publishableKey={publishableKey}>
       <ClerkLoaded>
         <Stack>
-          <Stack.Screen name="index" />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="login/index" options={{ headerShown: false }} />
         </Stack>
       </ClerkLoaded>
